@@ -1,0 +1,18 @@
+body {
+  padding-top: 50px;
+}
+
+.simple-template {
+  padding: 40px 15px;
+  text-align: center;
+}
+
+#image {
+  border:1px solid #aaaaaa;
+}
+
+#template {
+  font-family:monospace;
+  width:674px;
+  display:none;
+}
