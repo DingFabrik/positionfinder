@@ -5,6 +5,7 @@ var yw = null;
 var xr = null;
 var yr = null;
 
+var img = $( "#image");
 
 function onMouseUpdate(e) {
     xr = Math.floor((e.pageX - x0)/xw*100);
@@ -20,18 +21,22 @@ function genTemplate(event) {
              + "| Position-Y = " + yr + "\n"
              + "}}";
     $( "#template" ).html(text).fadeIn(300);
-    
+}
+
+function calculateVars() {
+    var pos = img.position()
+    x0 = pos.left;
+    y0 = pos.top;
+    xw = img.width();
+    yw = img.height();
 }
 
 $( document ).ready(
-    function() {       
-        var img = $( "#image");
-        var pos = img.position()
-        x0 = pos.left;
-        y0 = pos.top;
-        xw = img.width();
-        yw = img.height();
+    function() {
+        calculateVars();
         img.mousemove(onMouseUpdate);
         img.on('click', genTemplate);
     }
 );
+
+$(window).on('resize', calculateVars);
